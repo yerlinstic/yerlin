@@ -2,11 +2,9 @@ import os
 from tabulate import tabulate
 import requests
 
-# Devuelve un listado con todos los productos que pertenecen a la gama Ornamentales 
-# y que tienen más de 100 unidades en stock. El listado deberá estar ordenado por su precio de venta, 
-# mostrando en primer lugar los de mayor precio.
+
 def getAllData():
-    # json-server storage/producto.json -b 5501
+   
     peticion = requests.get("http://172.16.102.108:5501")
     data = peticion.json()
     return data

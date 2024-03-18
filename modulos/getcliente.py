@@ -15,6 +15,7 @@ def getOneClientCodigo(codigo):
     for val in cli.clientes:
         if(val.get('codigo_cliente') == codigo):
             return [{
+                
                 "codigo": val.get('codigo_cliente'),
                 "nombre": val.get('nombre_cliente')
             }]

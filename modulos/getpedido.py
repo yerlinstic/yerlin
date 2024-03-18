@@ -1,10 +1,6 @@
 import storage.pedido as pe
 from datetime import datetime
-# Devuelve un listado con el código de pedido, 
-# código de cliente, fecha esperada y 
-# fecha de entrega de los pedidos que no 
-# han sido entregados a tiempo.
-def getAllPedidosEntregadosAtrasadosDeTiempo():
+dosDeTiempo():
     pedidosEntregado = []
     for val in pe.pedido:
         if val.get("estado") == "Entregado" and val.get("fecha_entrega") is None:
@@ -24,5 +20,3 @@ def getAllPedidosEntregadosAtrasadosDeTiempo():
                 })
     return pedidosEntregado
 
-# Devuelve un listado de todos los pedidos que han sido entregados 
-# en el mes de enero de cualquier año.

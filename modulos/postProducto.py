@@ -1,33 +1,45 @@
 import os
-from tabulate import tabulate
 import json
 import requests
-import modules.getGamas as gG
+
 
 def postProducto():
-    # json-server storage/producto.json -b 5501
     producto = {
-        "codigo_producto": input("Ingrese el codigo del producto: "),
+        "codigo_producto": input("Ingrese el código del producto: "),
         "nombre": input("Ingrese el nombre del producto: "),
-        "gama": gG.getAllNombre()[int(input("Selecione la gama:\n"+"".join([f"\t{i}. {val}\n" for i, val in enumerate(gG.getAllNombre())])))],
-        "dimensiones": input("Ingrse la dimensiones del producto: "),
-        "proveedor": input("Ingrse el proveedor del producto: "),
-        "descripcion": input("Ingrse el descripcion del producto: "),
-        "cantidad_en_stock": int(input("Ingrse el cantidad en stock: ")),
-        "precio_venta": int(input("Ingrse el precio de ventas: ")),
-        "precio_proveedor": int(input("Ingrse el precio del proveedor: "))
+        "gama": input("Ingrese la gama del producto: "),
+        "dimensiones": input("Ingrese las dimensiones del producto: "),
+        "proveedor": input("Ingrese el proveedor del producto: "),
+        "descripcion": input("Ingrese la descripción del producto: "),
+        "cantidad_en_stock": int(input("Ingrese la cantidad en stock del producto: ")),
+        "precio_venta": float(input("Ingrese el precio de venta del producto: ")),
+        "precio_proveedor": float(input("Ingrese el precio del proveedor del producto: "))
     }
     
-    peticion = requests.post("http://172.16.102.108:5501", data=json.dumps(producto))
-    res = peticion.json()
-    res["Mensaje"] = "Producto Guardado"
-    return [res]
+    url = "http://172.16.102.108:5501/productos"  
+    headers = {"Content-Type": "application/json"}
+    
+    try:
+        response = requests.post(url, headers=headers, data=json.dumps(producto))
+        response.raise_for_status()
+        res = response.json()
+        res["Mensaje"] = "Producto Guardado"
+        return [res]
+    except requests.exceptions.RequestException as e:
+        return [{"Error": f"Error al enviar la solicitud: {e}"}]
+
+
+def deleteProducto(id_producto):
+   
+    pass
 
 def menu():
     while True:
         os.system("clear")
         print("""  
-    ___       __          _       _      __                         __      __                    __        
+                                                                    
+                                                                              
+    ___       __          _       _      __                         __      __                    __ 
    /   | ____/ /___ ___  (_)___  (_)____/ /__________ ______   ____/ /___ _/ /_____  _____   ____/ /__      
   / /| |/ __  / __ `__ \/ / __ \/ / ___/ __/ ___/ __ `/ ___/  / __  / __ `/ __/ __ \/ ___/  / __  / _ \     
  / ___ / /_/ / / / / / / / / / / (__  ) /_/ /  / /_/ / /     / /_/ / /_/ / /_/ /_/ (__  )  / /_/ /  __/     
@@ -37,14 +49,28 @@ def menu():
   / /_/ / /_/ / / / / / / / / / / /     / / / / / /\__ \                                                    
  / ____/ _, _/ /_/ / /_/ / /_/ / /___  / / / /_/ /___/ /                                                    
 /_/   /_/ |_|\____/_____/\____/\____/ /_/  \____//____/                                                     
-                                                                                                                                                    
-            1. Guardar un producto nuevo
-            0. Atras
-          
-          """)        
-        opcion = int(input("\nSelecione una de las opciones: "))
-        if(opcion == 1):
-            print(tabulate(postProducto(), headers="keys", tablefmt="github"))
-            input("Precione una tecla para continuar.....")
-        elif(opcion == 0):
+                   
+                    
+                    1. Guardar un producto nuevo
+                    2. Eliminar un producto
+                    0. Atrás
+                    """)        
+                           
+  
+  opcion = input("\nSeleccione una de las opciones: ")
+        if opcion == "1":
+            print(postProducto())
+            input("Presione una tecla para continuar.....")
+        elif opcion == "2":
+            id_producto = input("\nIngrese el ID del producto que desea eliminar: ")
+            deleteProducto(id_producto)
+            input("Presione una tecla para continuar.....")
+        elif opcion == "0":
             break
+
+
+def main():
+    menu()
+
+if __name__ == "__main__":
+    main()
