@@ -42,7 +42,7 @@ def menu():
 /_/ |_|\___/ .___/\____/_/   \__/\___/____/   \__,_/\___/  / .___/_/   \____/\__,_/\__,_/\___/\__/\____/____/  
           /_/                                             /_/                                                  
 
-            1. Obtener todos los productos de una categoría ordenando sus precios de venta, también que su cantidad de inventario sea superior (ejem: Ornamentales, 100 )
+            1. Obtener todos los productos de una categoría ordenando sus precio de venta, también que su cantidad de inventario sea superior (ejem: Ornamentales, 100 )
             0. Atras
           
           """)        

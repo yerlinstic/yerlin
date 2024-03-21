@@ -1,6 +1,4 @@
 import storage.empleado as em
-# Devuelve un listado con el nombre, apellidos y email 
-# de los empleados cuyo jefe tiene un código de jefe igual a 7.
 
 def getAllNombreApellidoEmailJefe(codigo):
     nombreApellidoEmail = []

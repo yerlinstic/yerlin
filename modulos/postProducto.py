@@ -57,16 +57,16 @@ def menu():
                     """)        
                            
   
-  opcion = input("\nSeleccione una de las opciones: ")
-        if opcion == "1":
+opcion = input("\nSeleccione una de las opciones: ")
+if opcion == "1":
             print(postProducto())
             input("Presione una tecla para continuar.....")
-        elif opcion == "2":
+elif opcion == "2":
             id_producto = input("\nIngrese el ID del producto que desea eliminar: ")
             deleteProducto(id_producto)
             input("Presione una tecla para continuar.....")
-        elif opcion == "0":
-            break
+elif opcion == "0":
+    break
 
 
 def main():
