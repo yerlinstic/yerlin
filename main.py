@@ -3,6 +3,20 @@ import os
 import re
 import json
 import requests
+import modulos as modulos
+import modulos.getcliente as cliente
+import modulos.getempleado as empleado
+import modulos.getpedido as pedidos
+import modulos.getProducto as producto 
+import modulos.getoficina as oficina
+
+
+
+
+
+
+
+
 
 
 def clear_screen():
@@ -13,7 +27,7 @@ def show_main_menu():
     print(""" 
                                                             
                                                                                                                                                
-            _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+             _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
             (_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_)
                                                                                                                                                                                                                                                                      
             ____  _                            _     __               __   __  ___                    ____       _            _             __
@@ -24,8 +38,6 @@ def show_main_menu():
                                                                                                             /_/                
 
           
-          
-                    
                                                                     1. Cliente
                                                                     2. Oficina
                                                                     3. Empleado
@@ -33,8 +45,10 @@ def show_main_menu():
                                                                     5. Productos
                                                                     6. Gamas de Productos
                                                                     0. Salir
+          
+                    
                                                                                                                                                
-            _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+             _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
             (_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_)
                                                                                                                                                 
                                                                                                                                      
@@ -112,18 +126,18 @@ opcion = input("\nSelecione una  opciones: ")
 if(re.match(r'[0-9]+$', opcion) is not None):
     opcion = int(opcion)
     if(opcion>=0 and opcion<=5):
-if(opcion == 1):
-    cliente.menu()
-elif(opcion == 2):
-    oficina.menu()
-elif(opcion == 3):
-    empleado.menu()
-elif(opcion == 4):
-    pedidos.menu()
-elif(opcion == 5):
-    menuProducto()
-elif(opcion == 0):
-    break
+        if(opcion == 1):
+            cliente.menu()
+        elif(opcion == 2):
+            oficina.menu()
+        elif(opcion == 3):
+            empleado.menu()
+        elif(opcion == 4):
+            pedidos.menu()
+        elif(opcion == 5):
+            producto.menu()
+        elif(opcion == 0):
+            exit()
 
 
 def show_all_gamas():

@@ -1,9 +1,9 @@
 from tabulate import tabulate
-import storage.cliente as cli
+import modulos.getAllData as datos 
 
 def getAllClientName():
     clienteName = list()
-    for val in cli.clientes:
+    for val in datos.Cliente():
         codigoName = dict({
             "codigo": val.get('codigo_cliente'),
             "nombre": val.get('nombre_cliente')
@@ -11,8 +11,8 @@ def getAllClientName():
         clienteName.append(codigoName)
     return clienteName
 
-def getOneClientCodigo(codigo):
-    for val in cli.clientes:
+def getAllClienteCodigo(codigo):
+    for val in datos.Cliente():
         if(val.get('codigo_cliente') == codigo):
             return [{
                 
@@ -22,7 +22,7 @@ def getOneClientCodigo(codigo):
 
 def getAllClientCreditCiudad(limiteCredit, ciudad):
     clienteCredic = list()
-    for val in cli.clientes:
+    for val in datos.clientes():
         if(val.get('limite_credito') >= limiteCredit and val.get('ciudad') == ciudad):
             clienteCredic.append({
                 "Codigo": val.get('codigo_cliente'),
@@ -55,10 +55,9 @@ def menu():
           """)        
         opcion = int(input("\nSelecione una de las opciones: "))
         if(opcion == 1):
-            print(tabulate(getAllClientName(), headers="keys", tablefmt="github"))
-        elif(opcion == 2):
+            print(tabulate(getAllClientName(), headers="keys", tablefmt="github")) 
             codigoCliente = int(input("Ingrese el codigo del cliente: "))
-            print(tabulate(getOneClientCodigo(codigoCliente), headers="keys", tablefmt="github"))
+            print(tabulate(getAllClienteCodigo(codigoCliente), headers="keys", tablefmt="github"))
         elif(opcion == 3):
             limite = float(input("Ingrese el limite de credito de los clientes que deseas vizualizar: "))
             ciudad = input("Ingrese el nombre de la ciudad que deseas filtrar los clientes: ")

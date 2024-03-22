@@ -1,8 +1,7 @@
-import storage.empleado as em
-
+import modulos.getAllData as datos
 def getAllNombreApellidoEmailJefe(codigo):
     nombreApellidoEmail = []
-    for val in em.empleados:
+    for val in datos.Empleado():
         if(val.get("codigo_jefe") == codigo):
             nombreApellidoEmail.append(
                 {
