@@ -7,20 +7,41 @@ def clear_screen():
 def show_main_menu():
     clear_screen()
     print(""" 
-                                        __  ___                    ____       _            _             __
-                                       /  |/  /__  ____  __  __   / __ \_____(_)___  _____(_)___  ____ _/ /
-                                      / /|_/ / _ \/ __ \/ / / /  / /_/ / ___/ / __ \/ ___/ / __ \/ __ `/ / 
-                                     / /  / /  __/ / / / /_/ /  / ____/ /  / / / / / /__/ / /_/ / /_/ / /  
-                                    /_/  /_/\___/_/ /_/\__,_/  /_/   /_/  /_/_/ /_/\___/_/ .___/\__,_/_/   
-                                                                                        /_/                
-                                                            1. Cliente
-                                                            2. Oficina
-                                                            3. Empleado
-                                                            4. Pedidos
-                                                            5. Productos
-                                                            6. Gamas de Productos
-                                                            0. Salir
-     """)
+                                                            
+                                                                                                                                               
+            _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+            (_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_)
+                                                                                                                                                                                                                                                                     
+            ____  _                            _     __               __   __  ___                    ____       _            _             __
+           / __ )(_)__  ____ _   _____  ____  (_)___/ /___     ____ _/ /  /  |/  /__  ____  __  __   / __ \_____(_)___  _____(_)___  ____ _/ /
+          / __  / / _ \/ __ \ | / / _ \/ __ \/ / __  / __ \   / __ `/ /  / /|_/ / _ \/ __ \/ / / /  / /_/ / ___/ / __ \/ ___/ / __ \/ __ `/ / 
+         / /_/ / /  __/ / / / |/ /  __/ / / / / /_/ / /_/ /  / /_/ / /  / /  / /  __/ / / / /_/ /  / ____/ /  / / / / / /__/ / /_/ / /_/ / /  
+        /_____/_/\___/_/ /_/|___/\___/_/ /_/_/\__,_/\____/   \__,_/_/  /_/  /_/\___/_/ /_/\__,_/  /_/   /_/  /_/_/ /_/\___/_/ .___/\__,_/_/   
+                                                                                                            /_/                
+
+          
+          
+                    
+                                                                    1. Cliente
+                                                                    2. Oficina
+                                                                    3. Empleado
+                                                                    4. Pedidos
+                                                                    5. Productos
+                                                                    6. Gamas de Productos
+                                                                    0. Salir
+                                                                                                                                               
+            _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+            (_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_)
+                                                                                                                                                
+                                                                                                                                     
+                                                                                                                                     
+     
+          
+          
+          
+          
+          
+          """)
 
 def main_menu():
     while True:
@@ -51,34 +72,71 @@ def menu_producto():
 def menu_gamas():
     while True:
         clear_screen()
+
         print("""
-                                                    ____  _                                _     __    
-                                                   / __ )(_)__  ____ ___ _   _____  ____  (_)___/ /___ 
-                                                  / __  / / _ \/ __ `__ \ | / / _ \/ __ \/ / __  / __ \
-                                                 / /_/ / /  __/ / / / / / |/ /  __/ / / / / /_/ / /_/ /
-                                                /_____/_/\___/_/ /_/ /_/|___/\___/_/ /_/_/\__,_/\____/ 
-                                                                                                                                                    
-                                                                1. Mostrar todas las gamas
-                                                                2. Mostrar una gama por ID
-                                                                3. Crear una nueva gama
-                                                                4. Actualizar una gama existente
-                                                                5. Eliminar una gama
-                                                                0. Regresar al menú principal
-  """)
+
+                                                                                                                                                                                
+
+                                             _  __   _  __   _  __   _  __   _  __   _  __   _  __   _  __   _  __                                 
+                                            | |/_/  | |/_/  | |/_/  | |/_/  | |/_/  | |/_/  | |/_/  | |/_/  | |/_/                                 
+                                            _>  <   _>  <   _>  <   _>  <   _>  <   _>  <   _>  <   _>  <   _>  <                                            
+                                            /_/|_|  /_/|_|  /_/|_|  /_/|_|  /_/|_|  /_/|_|  /_/|_|  /_/|_|  /_/|_|                                                                              
+
+                                                        ____  _                                _     __    
+                                                       / __ )(_)__  ____ ___ _   _____  ____  (_)___/ /___ 
+                                                      / __  / / _ \/ __ `__ \ | / / _ \/ __ \/ / __  / __ \
+                                                     / /_/ / /  __/ / / / / / |/ /  __/ / / / / /_/ / /_/ /
+                                                    /_____/_/\___/_/ /_/ /_/|___/\___/_/ /_/_/\__,_/\____/ 
+                                                                                                                                                        
+                                                                    1. Mostrar todas las gamas
+                                                                    2. Mostrar una gama por ID
+                                                                    3. Crear una nueva gama
+                                                                    4. Actualizar una gama existente
+                                                                    5. Eliminar una gama
+                                                                    0. Regresar al menú principal
+                                                                                                                                     
+                                             _  __   _  __   _  __   _  __   _  __   _  __   _  __   _  __   _  __                                 
+                                            | |/_/  | |/_/  | |/_/  | |/_/  | |/_/  | |/_/  | |/_/  | |/_/  | |/_/                                 
+                                            _>  <   _>  <   _>  <   _>  <   _>  <   _>  <   _>  <   _>  <   _>  <                                            
+                                            /_/|_|  /_/|_|  /_/|_|  /_/|_|  /_/|_|  /_/|_|  /_/|_|  /_/|_|  /_/|_|                                                                              
+             
+              
+              """)
+
+
 opcion = input("\nSeleccione una opción: ")
-if opcion == "1":
-    show_all_gamas()
-elif opcion == "2":
-    show_gama_by_id()
-elif opcion == "3":
-    create_new_gama()
-elif opcion == "4":
-    update_existing_gama() 
-elif opcion == "5":
-    delete_gama() 
-elif opcion == "0":
-    b
-    vreak
+solicitud = input("Ingrese la opcion a la que quiera acceder: ")
+
+        if solicitud == "1":
+        os.system("clear")
+        Empleados.menu()
+        break
+        elif solicitud == "2":
+        os.system("clear")
+        Pago.menu()
+        break
+        elif solicitud == "3":
+        os.system("clear")
+        Oficinas.menu()
+        break
+        elif solicitud == "4":
+        os.system("clear")
+        Clientes.menu()
+        break
+        elif solicitud == "5":
+        os.system("clear")
+        Producto.menu()
+        break
+        elif solicitud == "6":
+        os.system("clear")
+        Pedido.menu()
+        break
+        elif solicitud.upper() == "X":
+        exit()
+        else:
+        print("Esta opcion no es valida")
+        input("Presione enter para continuar")
+
 
 def show_all_gamas():
     clear_screen()
