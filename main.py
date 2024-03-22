@@ -112,32 +112,27 @@ opcion = input("\nSelecione una  opciones: ")
 if(re.match(r'[0-9]+$', opcion) is not None):
     opcion = int(opcion)
     if(opcion>=0 and opcion<=5):
-        if(opcion == 1):
-            cliente.menu()
-        elif(opcion == 2):
-            oficina.menu()
-        elif(opcion == 3):
-            empleado.menu()
-        elif(opcion == 4):
-            pedidos.menu()
-        elif(opcion == 5):
-            menuProducto()
-        elif(opcion == 0):
-             break
-
-
-
-
-
+if(opcion == 1):
+    cliente.menu()
+elif(opcion == 2):
+    oficina.menu()
+elif(opcion == 3):
+    empleado.menu()
+elif(opcion == 4):
+    pedidos.menu()
+elif(opcion == 5):
+    menuProducto()
+elif(opcion == 0):
+    break
 
 
 def show_all_gamas():
     clear_screen()
-    print("=== Todas las Gamas ===")
+    print(" Todas las Gamas ")
     gamas = gG.get_all_gamas()
     for gama in gamas:
         print(gama)
-    input("Presione Enter para continuar...")
+    input("Presione Enter para continuar")
 
 def show_gama_by_id():
     clear_screen()
@@ -166,7 +161,7 @@ def create_new_gama():
 
 def update_existing_gama():
     clear_screen()
-    print("=== Actualizar Gama Existente ===")
+    print("Actualizar Gama Existente ")
     gama_id = input("Ingrese el ID de la gama a actualizar: ")
     new_gama_info = {
         "name": input("Ingrese el nuevo nombre de la gama: "),
@@ -180,7 +175,7 @@ def update_existing_gama():
 
     def delete_gama():
         clear_screen()
-        print("=== Eliminar Gama ===")
+        print(" Eliminar Gama ")
         gama_id = input("Ingrese el ID de la gama a eliminar: ")
         if gG.delete_gama(gama_id):
             print("Gama eliminada correctamente.")
@@ -188,5 +183,5 @@ def update_existing_gama():
             print("Error al eliminar la gama")
         input("Presione Enter para continuar")
 
-    if __name__ == "__main__":
+    if __name__  == "__main__":
         main_menu()
