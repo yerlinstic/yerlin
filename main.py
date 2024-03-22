@@ -1,5 +1,9 @@
+from tabulate import tabulate
 import os
-import modules.getGamas as gG
+import re
+import json
+import requests
+
 
 def clear_screen():
     os.system("clear")
@@ -104,38 +108,27 @@ def menu_gamas():
               """)
 
 
-opcion = input("\nSeleccione una opción: ")
-solicitud = input("Ingrese la opcion a la que quiera acceder: ")
+opcion = input("\nSelecione una  opciones: ")
+if(re.match(r'[0-9]+$', opcion) is not None):
+    opcion = int(opcion)
+    if(opcion>=0 and opcion<=5):
+        if(opcion == 1):
+            cliente.menu()
+        elif(opcion == 2):
+            oficina.menu()
+        elif(opcion == 3):
+            empleado.menu()
+        elif(opcion == 4):
+            pedidos.menu()
+        elif(opcion == 5):
+            menuProducto()
+        elif(opcion == 0):
+             break
 
-        if solicitud == "1":
-        os.system("clear")
-        Empleados.menu()
-        break
-        elif solicitud == "2":
-        os.system("clear")
-        Pago.menu()
-        break
-        elif solicitud == "3":
-        os.system("clear")
-        Oficinas.menu()
-        break
-        elif solicitud == "4":
-        os.system("clear")
-        Clientes.menu()
-        break
-        elif solicitud == "5":
-        os.system("clear")
-        Producto.menu()
-        break
-        elif solicitud == "6":
-        os.system("clear")
-        Pedido.menu()
-        break
-        elif solicitud.upper() == "X":
-        exit()
-        else:
-        print("Esta opcion no es valida")
-        input("Presione enter para continuar")
+
+
+
+
 
 
 def show_all_gamas():
@@ -148,18 +141,18 @@ def show_all_gamas():
 
 def show_gama_by_id():
     clear_screen()
-    print("=== Mostrar Gama por ID ===")
+    print(" Mostrar Gama por ID ")
     gama_id = input("Ingrese el ID de la gama: ")
     gama = gG.get_gama_by_id(gama_id)
     if gama:
         print(gama)
     else:
         print("Gama no encontrada.")
-    input("Presione Enter para continuar...")
+    input("Presione Enter para continua")
 
 def create_new_gama():
     clear_screen()
-    print("=== Crear Nueva Gama code --list-extensions | xargs -L 1 code --uninstall-extension ===")
+    print("Crear Nueva Gama code --list-extensions | xargs -L 1 code --uninstall-extension ")
     gama_info = {
         "name": input("Ingrese el nombre de la nueva gama: "),
         "description": input("Ingrese la descripción de la nueva gama: ")
@@ -169,7 +162,7 @@ def create_new_gama():
         print("Nueva gama creada con ID:", new_gama_id)
     else:
         print("Error al crear la nueva gama.")
-    input("Presione Enter para continuar...")
+    input("Presione Enter para continuar")
 
 def update_existing_gama():
     clear_screen()
@@ -183,7 +176,7 @@ def update_existing_gama():
         print("Gama actualizada correctamente.")
     else:
         print("Error al actualizar la gama.")
-    input("Presione Enter para continuar...")
+    input("Presione Enter para continuar")
 
     def delete_gama():
         clear_screen()
@@ -192,8 +185,8 @@ def update_existing_gama():
         if gG.delete_gama(gama_id):
             print("Gama eliminada correctamente.")
         else:
-            print("Error al eliminar la gama.")
-        input("Presione Enter para continuar...")
+            print("Error al eliminar la gama")
+        input("Presione Enter para continuar")
 
     if __name__ == "__main__":
         main_menu()
